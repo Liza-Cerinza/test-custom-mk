@@ -15,9 +15,9 @@
     "execute": {
       "inArguments": [],
       "outArguments": [],
-      "url": "https://yourdomain.com/execute",
+      "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff",
       "verb": "POST",
-      "body": "",
+      "body": "{}",
       "header": "",
       "format": "json",
       "useJwt": false,
