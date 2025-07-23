@@ -1,38 +1,133 @@
 {
-  "workflowApiVersion": "1.1",
-  "metaData": {
-    "icon": "https://cdn-icons-png.flaticon.com/512/545/545682.png",
-    "category": "message"
-  },
-  "type": "REST",
-  "lang": {
-    "en-US": {
-      "name": "Test Custom Activity-liza",
-      "description": "Envía un JWT a un endpoint"
-    }
-  },
-  "arguments": {
-    "execute": {
-      "inArguments": [],
-      "outArguments": [],
-      "url": "https://yourdomain.com/execute",
-      "verb": "POST",
-      "body": "",
-      "header": "",
-      "format": "json",
-      "useJwt": false,
-      "timeout": 10000,
-      "retryCount": 3,
-      "retryDelay": 1000,
-      "concurrentRequests": 5
-    }
-  },
-  "configurationArguments": {
-    "applicationExtensionKey": "your-key"
-  },
-  "userInterfaces": {
-    "configModal": {
-      "url": "https://test-custom-mk.vercel.app/index.html"
+    "workflowApiVersion": "1.1",
+    "name": "Custom Activity Name",
+    "description": "Whatsapp notification custom activity",
+    "metaData": {
+      "icon": "icon.png",
+      "category": "Custom"
+    },
+    "type": "REST",
+    "lang": {
+      "en-US": {
+        "name": "Localized Custom Activity Name",
+        "description": "Localized Custom Activity Description",
+        "label1": "Localized Step 1",
+        "label2": "Localized Step 2",
+        "label3": "Localized Step 3"
+      }
+    },
+    "arguments": {
+      "execute": {
+        "inArguments": [
+          {
+            "staticValue": 0,
+            "databoundEmailAddress": "{{Event.EventKey.EmailAddress}}"
+          }
+        ],
+        "outArguments": [
+          {
+            "returnValue": "default"
+          }
+        ],
+        "timeout": 10000,
+        "retryCount": 1,
+        "retryDelay": 1000,
+        "concurrentRequests": 6,
+        "url": "https://example.com/execute",
+        "securityOptions": {
+          "securityType": "securityContext",
+          "securityContextKey": "EXTERNAL_KEY"
+        }
+      }
+    },
+    "configurationArguments": {
+      "save": {
+        "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff",
+        "securityOptions": {
+          "securityType": "securityContext",
+          "securityContextKey": "EXTERNAL_KEY"
+        }
+      },
+      "publish": {
+        "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff",
+        "securityOptions": {
+          "securityType": "securityContext",
+          "securityContextKey": "EXTERNAL_KEY"
+        }
+      },
+      "validate": {
+        "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff",
+        "securityOptions": {
+          "securityType": "securityContext",
+          "securityContextKey": "EXTERNAL_KEY"
+        }
+      },
+      "stop": {
+        "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff",
+        "securityOptions": {
+          "securityType": "securityContext",
+          "securityContextKey": "EXTERNAL_KEY"
+        }
+      }
+    },
+    "wizardSteps": [
+      {
+        "label": "label1",
+        "key": "step1"
+      },
+      {
+        "label": "label2",
+        "key": "step2"
+      },
+      {
+        "label": "label3",
+        "key": "step3",
+        "active": false
+      }
+    ],
+    "userInterfaces": {
+      "configModal": {
+        "fullscreen": true,
+        "url": "index.html"
+      },
+      "runningModal": {
+        "url": "index.html"
+      },
+      "runningHover": {
+        "url": "index.html"
+      }
+    },
+    "schema": {
+      "arguments": {
+        "execute": {
+          "inArguments": [
+            {
+              "staticValue": {
+                "dataType": "Number",
+                "isNullable": false,
+                "direction": "in"
+              },
+              "databoundEmailAddress": {
+                "dataType": "Email",
+                "isNullable": false,
+                "direction": "in"
+              }
+            }
+          ],
+          "outArguments": [
+            {
+              "returnValue": {
+                "dataType": "Text",
+                "isNullable": false,
+                "direction": "out"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "copySettings": {
+      "allowCopy": true,
+      "ignoreArguments": ["eventDefinitionKey"]
     }
   }
-} 
