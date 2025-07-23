@@ -1,13 +1,13 @@
 {
   "workflowApiVersion": "1.1",
   "metaData": {
-    "icon": "https://yourdomain.com/icon.png",
+    "icon": "https://cdn-icons-png.flaticon.com/512/545/545682.png",
     "category": "message"
   },
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "JWT Custom Activity",
+      "name": "Test Custom Activity-liza",
       "description": "Envía un JWT a un endpoint"
     }
   },
@@ -32,7 +32,7 @@
   },
   "userInterfaces": {
     "configModal": {
-      "url": "https://yourdomain.com/index.html"
+      "url": "https://test-custom-mk.vercel.app/index.html"
     }
   }
 } 
