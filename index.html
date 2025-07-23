@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Custom Activity</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/postmonger"></script>
+  <script src="customActivity.js"></script>
+</head>
+<body>
+  <h1>Configuración de la Actividad</h1>
+  <form id="activityForm">
+    <label>Nombre:
+      <input type="text" id="nombre" required />
+    </label>
+    <br/>
+    <label>Número de Teléfono:
+      <input type="tel" id="telefono" required />
+    </label>
+    <br/>
+    <button type="submit" id="save">Guardar</button>
+  </form>
+  <div id="mensajeExito" style="display:none; color:green; margin-top:10px;">¡Datos enviados correctamente!</div>
+</body>
+</html> 
