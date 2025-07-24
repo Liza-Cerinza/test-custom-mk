@@ -65,7 +65,7 @@ define(["postmonger"], function (Postmonger) {
       payload.arguments.execute.inArguments = [
           { campaignName: campaignName },
           { campaignId: campaignId },
-          { email: "{{Contact.Attribute.Prueba_Jorge.email}}" }
+          { email: "{{Contact.Attribute.Prueba_Jorge.Email}}" }
       ];
 
       payload.metaData.isConfigured = true;
