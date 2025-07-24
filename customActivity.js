@@ -61,10 +61,11 @@ define(["postmonger"], function (Postmonger) {
           return;
       }
 
-      // Prepara los datos para inArguments
+      // Cambia 'DataExtensionName' por el nombre real de tu Data Extension si es necesario
       payload.arguments.execute.inArguments = [
           { campaignName: campaignName },
-          { campaignId: campaignId }
+          { campaignId: campaignId },
+          { email: "{{Contact.Attribute.Prueba_Jorge.email}}" }
       ];
 
       payload.metaData.isConfigured = true;
