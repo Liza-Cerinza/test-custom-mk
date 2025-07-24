@@ -7,7 +7,7 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Enviar Campaña",
+      "name": "Enviar Campaña 1",
       "description": "Envía nombre de campaña y email al backend"
     }
   },
@@ -35,7 +35,7 @@
     "arguments": {
       "execute": {
         "inArguments": [
-          { "email": "{{Contact.Default.Email}}" },
+          { "email": "{{Contact.Attribute.Prueba_Jorge.Email}}" },
           { "campaignName": "{{Activity.campaignName}}" }
         ],
         "outArguments": [],

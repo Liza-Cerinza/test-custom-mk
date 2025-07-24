@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const campaignName = document.getElementById('campaignName').value;
 
     payload.arguments.execute.inArguments = [
-      { email: "{{Contact.Default.Email}}" },
+      { email: "{{Contact.Attribute.Prueba_Jorge.Email}}" },
       { campaignName }
     ];
 
