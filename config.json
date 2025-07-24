@@ -1,7 +1,7 @@
 {
   "workflowApiVersion": "1.1",
-  "name": "Custom Activity Name",
-  "description": "Whatsapp notification custom activity",
+  "name": "Envio Data Custom Activity",
+  "description": "Envía datos de una Data Extension a un backend externo.",
   "metaData": {
     "icon": "icon.png",
     "category": "Custom"
@@ -9,8 +9,8 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "ENVIO DATA",
-      "description": "Localized Custom Activity Description"
+      "name": "Envio Data Custom Activity",
+      "description": "Envía datos de una Data Extension a un backend externo."
     }
   },
   "arguments": {
@@ -29,16 +29,16 @@
   "configurationArguments": {
     "applicationExtensionKey": "your-extension-key",
     "save": {
-      "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff"
+      "url": "https://tubackend.com/save"
     },
     "publish": {
-      "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff"
+      "url": "https://tubackend.com/publish"
     },
     "validate": {
-      "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff"
+      "url": "https://tubackend.com/validate"
     },
     "stop": {
-      "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff"
+      "url": "https://tubackend.com/stop"
     }
   },
   "userInterfaces": {
@@ -57,8 +57,6 @@
     "arguments": {
       "execute": {
         "inArguments": [
-          { "campaignName": "" },
-          { "campaignId": "" },
           { "email": "{{Contact.Attribute.Prueba_Jorge.Email}}" }
         ],
         "outArguments": []

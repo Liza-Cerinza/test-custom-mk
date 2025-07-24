@@ -47,24 +47,18 @@ define(["postmonger"], function (Postmonger) {
   }
 
   function onGetTokens(tokens) {
-      // Aquí puedes usar los tokens si es necesario
+      // Puedes usar los tokens si es necesario
   }
 
   function onGetEndpoints(endpoints) {
-      // Aquí puedes usar los endpoints si es necesario
+      // Puedes usar los endpoints si es necesario
   }
 
   function save() {
       // Validación simple
-      if (!campaignName || !campaignId) {
-          $("#status").html("Debes completar todos los campos.");
-          return;
-      }
+      // No es necesario validar otros campos si solo se envía el email
 
-      // Prepara los datos para inArguments. La referencia de email debe coincidir con el schema y el campo de la Data Extension.
       payload.arguments.execute.inArguments = [
-          { campaignName: campaignName },
-          { campaignId: campaignId },
           { email: "{{Contact.Attribute.Prueba_Jorge.Email}}" }
       ];
 
