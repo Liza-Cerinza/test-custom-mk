@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     payload.metaData.isConfigured = true;
+    console.log('Payload:', payload);
 
     connection.trigger('updateActivity', payload);
   });

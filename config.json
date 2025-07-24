@@ -33,10 +33,7 @@
   "schema": {
     "arguments": {
       "execute": {
-        "inArguments": [
-          { "email": "{{Contact.Attribute.Prueba_Jorge.Email}}" },
-          { "campaignName": "{{Activity.campaignName}}" }
-        ],
+        "inArguments": [],
         "outArguments": []
       }
     }
