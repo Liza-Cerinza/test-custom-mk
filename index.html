@@ -1,53 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Custom Journey Builder Activity</title>
-
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/require.js"></script>
-  <script type="text/javascript">
-    (function () {
-      var config = {
-        baseUrl: "",
-      };
-
-      var dependencies = ["customActivity"];
-
-      require(config, dependencies);
-    })();
-  </script>
-
-  <!--Styles-->
-  <style type="text/css">
-    body {
-      padding: 20px;
-      margin: 0;
-    }
-
-    .step {
-      display: none;
-    }
-
-    #step1 {
-      display: block;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Configuración de Campaña</title>
+  <script src="https://assets.sfdcstatic.com/rta/latest/canvas/canvas-all.js"></script>
+  <script src="https://unpkg.com/postmonger"></script>
 </head>
-<h1>CONFIGURACION BASICA</h1>
-<p>Configura los datos de la campaña aquí</p>
-<form id="activity-form">
-  <label>
-    Nombre Campaña:
-    <input type="text" id="campaign" required>
-  </label>
-  <br>
-  <label>
-    Id campaña:
-    <input type="text" id="idCampaign" required>
-  </label>
-  <br>
-  <button type="submit">Guardar</button>
-</form>
-<div id="status"></div>
+<body>
+  <h3>Nombre de Campaña</h3>
+  <input type="text" id="campaignName" placeholder="Ej. Promoción Julio" />
+  <button id="btnSave">Guardar</button>
+
+  <script src="customActivity.js"></script>
+</body>
 </html>

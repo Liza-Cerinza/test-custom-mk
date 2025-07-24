@@ -1,72 +1,50 @@
 {
   "workflowApiVersion": "1.1",
-  "name": "Envio Data Custom Activity",
-  "description": "Envía datos de una Data Extension a un backend externo.",
   "metaData": {
     "icon": "icon.png",
-    "category": "Custom"
+    "category": "message"
   },
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Envio Data Custom Activity",
-      "description": "Envía datos de una Data Extension a un backend externo."
+      "name": "Enviar Campaña",
+      "description": "Envía nombre de campaña y email al backend"
     }
   },
   "arguments": {
     "execute": {
-      "inArguments": [],
-      "outArguments": [],
       "url": "https://webhook.site/6deb0576-b617-4781-9a84-139c0b6ebfff",
       "verb": "POST",
       "body": "",
       "header": "",
       "format": "json",
-      "useJwt": false,
-      "timeout": 10000
+      "useJwt": false
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "your-extension-key",
-    "save": {
-      "url": "https://tubackend.com/save"
-    },
-    "publish": {
-      "url": "https://tubackend.com/publish"
-    },
-    "validate": {
-      "url": "https://tubackend.com/validate"
-    },
-    "stop": {
-      "url": "https://tubackend.com/stop"
+    "applicationExtensionKey": "2053a524-ba68-4985-bcaf-9b41ecc37799",
+    "edit": {
+      "url": "index.html"
     }
   },
+  "configurationSchema": {},
   "userInterfaces": {
-    "configModal": {
-      "fullscreen": true,
-      "url": "index.html"
-    },
-    "runningModal": {
-      "url": "index.html"
-    },
-    "runningHover": {
-      "url": "index.html"
-    }
+    "configurationSupportsReadOnlyMode": true
   },
   "schema": {
     "arguments": {
       "execute": {
         "inArguments": [
-          { "email": "{{Contact.Attribute.Prueba_Jorge.Email}}" }
+          { "email": "{{Contact.Default.Email}}" },
+          { "campaignName": "{{Activity.campaignName}}" }
         ],
-        "outArguments": []
+        "outArguments": [],
+        "url": "",
+        "verb": "POST",
+        "body": "",
+        "format": "json",
+        "header": ""
       }
-    },
-    "copySettings": {
-      "allowCopy": true,
-      "ignoreArguments": [
-        "eventDefinitionKey"
-      ]
     }
   }
 }

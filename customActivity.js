@@ -1,70 +1,33 @@
-define(["postmonger"], function (Postmonger) {
-  "use strict";
+const connection = new Postmonger.Session();
+let payload = {};
 
-  var connection = new Postmonger.Session();
-  var payload = {};
+document.addEventListener('DOMContentLoaded', function () {
+  connection.on('initActivity', function (data) {
+    payload = data;
 
-  var campaignName = "";
-  var campaignId = "";
-
-  $(window).ready(onRender);
-
-  connection.on("initActivity", initialize);
-  connection.on("requestedTokens", onGetTokens);
-  connection.on("requestedEndpoints", onGetEndpoints);
-
-  $("#activity-form").submit(function (e) {
-      e.preventDefault();
-      campaignName = $("#campaign").val();
-      campaignId = $("#idCampaign").val();
-      save();
+    const campaignData = data.arguments?.execute?.inArguments?.find(arg => arg.campaignName);
+    if (campaignData) {
+      document.getElementById('campaignName').value = campaignData.campaignName;
+    }
   });
 
-  function onRender() {
-      connection.trigger("ready");
-      connection.trigger("requestTokens");
-      connection.trigger("requestEndpoints");
-  }
+  connection.on('clickedNext', function () {
+    const campaignName = document.getElementById('campaignName').value;
 
-  function initialize(data) {
-      if (data) {
-          payload = data;
-      }
+    payload.arguments.execute.inArguments = [
+      { email: "{{Contact.Default.Email}}" },
+      { campaignName }
+    ];
 
-      var inArguments = payload.arguments?.execute?.inArguments || [];
+    payload.metaData.isConfigured = true;
 
-      inArguments.forEach(function (arg) {
-          if (arg.campaignName) {
-              campaignName = arg.campaignName;
-              $("#campaign").val(campaignName);
-          }
+    connection.trigger('updateActivity', payload);
+  });
 
-          if (arg.campaignId) {
-              campaignId = arg.campaignId;
-              $("#idCampaign").val(campaignId);
-          }
-      });
-  }
+  document.getElementById('btnSave').addEventListener('click', function () {
+    connection.trigger('clickedNext');
+  });
 
-  function onGetTokens(tokens) {
-      // Puedes usar los tokens si es necesario
-  }
-
-  function onGetEndpoints(endpoints) {
-      // Puedes usar los endpoints si es necesario
-  }
-
-  function save() {
-      // Validación simple
-      // No es necesario validar otros campos si solo se envía el email
-
-      payload.arguments.execute.inArguments = [
-          { email: "{{Contact.Attribute.Prueba_Jorge.Email}}" }
-      ];
-
-      payload.metaData.isConfigured = true;
-
-      connection.trigger("updateActivity", payload);
-      $("#status").html("Datos guardados correctamente.");
-  }
+  connection.trigger('ready');
 });
+
