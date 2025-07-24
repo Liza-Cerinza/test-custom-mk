@@ -61,7 +61,7 @@ define(["postmonger"], function (Postmonger) {
           return;
       }
 
-      // Cambia 'DataExtensionName' por el nombre real de tu Data Extension si es necesario
+      // Prepara los datos para inArguments. La referencia de email debe coincidir con el schema y el campo de la Data Extension.
       payload.arguments.execute.inArguments = [
           { campaignName: campaignName },
           { campaignId: campaignId },
