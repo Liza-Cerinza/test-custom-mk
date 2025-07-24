@@ -9,7 +9,7 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "test custom activity ENVIO DATA",
+      "name": "ENVIO DATA",
       "description": "Localized Custom Activity Description"
     }
   },
