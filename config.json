@@ -57,12 +57,9 @@
     "arguments": {
       "execute": {
         "inArguments": [
-          {
-            "Nombre": "{{Contact.Nombre}}"
-          },
-          {
-            "Email": "{{Contact.Email}}"
-          }
+          { "campaignName": "" },
+          { "campaignId": "" },
+          { "email": "{{Contact.Attribute.Prueba_Jorge.Email}}" }
         ],
         "outArguments": []
       }
